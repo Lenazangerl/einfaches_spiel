@@ -1,5 +1,11 @@
 package lzangerl.Model;
 
+
+/**
+ * @author Lena Zangerl
+ * @version 2026-09-25
+ * Die Klasse enthält die Spiellogik eines kleinen Zahlen Gewinnspiels.
+ */
 public class GewinnModel {
     private int gesamtPunkte;
     private int spielerZahl;
@@ -7,6 +13,7 @@ public class GewinnModel {
     private int rundenErgebnis;
 
     public GewinnModel(int zahl) {
+        // startwert
         this.gesamtPunkte = 30;
 
         if(zahl > 0 && zahl < 10) {
@@ -44,6 +51,7 @@ public class GewinnModel {
             this.rundenErgebnis = -10;
         }
 
+        // Ändern des Gesamtpunktestandes
         this.gesamtPunkte = this.getGesamtPunkte() + this.rundenErgebnis;
     }
 
