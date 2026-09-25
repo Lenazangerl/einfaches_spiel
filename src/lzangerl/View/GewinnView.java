@@ -78,6 +78,7 @@ public class GewinnView extends JFrame {
         textfelder.add(compZahl);
 
         btnWh = new JButton("Noch einmal!");
+        btnWh.setEnabled(false);
         btnWh.addActionListener(controller);
         // Ein Panel damit der Button direkt mittig ist
         JPanel btn = new JPanel(new FlowLayout());
@@ -131,6 +132,14 @@ public class GewinnView extends JFrame {
         spielerZahl.setText("");
         compZahl.setText("");
         rundenErgebnis.setText("");
+    }
+
+    public void setEingabeAktiv(boolean aktiv) {
+        spielerZahl.setEnabled(aktiv);
+    }
+
+    public void setNochmalAktiv(boolean aktiv) {
+        btnWh.setEnabled(aktiv);
     }
 }
 
