@@ -12,13 +12,9 @@ public class GewinnModel {
     private int computerZahl;
     private int rundenErgebnis;
 
-    public GewinnModel(int zahl) {
+    public GewinnModel() {
         // startwert
         this.gesamtPunkte = 30;
-
-        if(zahl > 0 && zahl < 10) {
-            this.spielerZahl = zahl;
-        }
     }
 
     public int getGesamtPunkte() {
@@ -40,11 +36,12 @@ public class GewinnModel {
 
     public void berechneRunde(int spielerZahl) {
         this.spielerZahl = spielerZahl;
+        berechneComputerZahl();
 
         if(spielerZahl == getComputerZahl()) {
             this.rundenErgebnis = 20;
         }
-        if((getComputerZahl() - spielerZahl) == -1 || (getComputerZahl() - spielerZahl) == 1) {
+        else if((getComputerZahl() - spielerZahl) == -1 || (getComputerZahl() - spielerZahl) == 1) {
             this.rundenErgebnis = 5;
         }
         else {
