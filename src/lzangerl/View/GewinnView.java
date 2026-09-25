@@ -132,5 +132,10 @@ public class GewinnView extends JFrame {
         compZahl.setText("");
         rundenErgebnis.setText("");
     }
+
+    public void setErgebnisFarbe(Color farbe) {
+        rundenErgebnis.setBackground(farbe);
+        gesamtErgebnis.setBackground(farbe);
+    }
 }
 
