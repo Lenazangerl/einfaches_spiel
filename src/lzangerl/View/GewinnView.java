@@ -103,8 +103,8 @@ public class GewinnView extends JFrame {
         rundenErgebnis.setText(ergebnis);
     }
 
-    public void setGesamtErgebnis(JLabel gesamtErgebnis) {
-        this.gesamtErgebnis = gesamtErgebnis;
+    public void setGesamtErgebnis(String ergebnis) {
+        gesamtErgebnis.setText(ergebnis);
     }
 
     public JTextField getSpielerZahl() {
