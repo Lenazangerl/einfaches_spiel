@@ -39,13 +39,7 @@ public class GewinnController implements ActionListener {
                     view.setRundenErgebnis("" + model.getRundenErgebnis());
                     view.setGesamtErgebnis("" + model.getGesamtPunkte());
 
-                    if (model.hatGewonnen()) {
-                        view.setErgebnisFarbe(Color.GREEN);
-                    }
-                    else if (model.hatVerloren()) {
-                        view.setErgebnisFarbe(Color.RED);
-                    }
-                    else if (model.getRundenErgebnis() > 0) {
+                    if (model.getRundenErgebnis() > 0) {
                         view.setErgebnisFarbe(Color.GREEN);
                     }
                     else if (model.getRundenErgebnis() < 0) {
