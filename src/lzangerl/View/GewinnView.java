@@ -37,19 +37,19 @@ public class GewinnView extends JFrame {
         punkteAnzeige.add(gesamt);
 
 
-        runde = new JLabel();
-        runde.setOpaque(true);
-        runde.setBackground(new Color(255, 255, 255));
-        runde.setText("Tippe eine Zahl von 1 bis 9");
-        runde.setHorizontalAlignment(SwingConstants.CENTER);
-        punkteAnzeige.add(runde);
+        rundenErgebnis = new JLabel();
+        rundenErgebnis.setOpaque(true);
+        rundenErgebnis.setBackground(new Color(255, 255, 255));
+        rundenErgebnis.setText("Tippe eine Zahl von 1 bis 9");
+        rundenErgebnis.setHorizontalAlignment(SwingConstants.CENTER);
+        punkteAnzeige.add(rundenErgebnis);
 
-        gesamt = new JLabel();
-        gesamt.setOpaque(true);
-        gesamt.setBackground(new Color(255, 255, 255));
-        gesamt.setText("Gesamtpunkte: ");
-        gesamt.setHorizontalAlignment(SwingConstants.CENTER);
-        punkteAnzeige.add(gesamt);
+        gesamtErgebnis = new JLabel();
+        gesamtErgebnis.setOpaque(true);
+        gesamtErgebnis.setBackground(new Color(255, 255, 255));
+        gesamtErgebnis.setText("Gesamtpunkte: ");
+        gesamtErgebnis.setHorizontalAlignment(SwingConstants.CENTER);
+        punkteAnzeige.add(gesamtErgebnis);
 
         JLabel spielerAnzeige = new JLabel();
         spielerAnzeige.setOpaque(true);
@@ -92,6 +92,18 @@ public class GewinnView extends JFrame {
         this.setVisible(true);
     }
 
+    public void setCompZahl(String zahl) {
+        compZahl.setText(zahl);
+    }
+
+    public void setRundenErgebnis(String ergebnis) {
+        rundenErgebnis.setText(ergebnis);
+    }
+
+    public void setGesamtErgebnis(JLabel gesamtErgebnis) {
+        this.gesamtErgebnis = gesamtErgebnis;
+    }
+
     public JTextField getSpielerZahl() {
         return spielerZahl;
     }
@@ -110,6 +122,12 @@ public class GewinnView extends JFrame {
 
     public JButton getBtnWh() {
         return btnWh;
+    }
+
+    public void clearRunde() {
+        spielerZahl.setText("");
+        compZahl.setText("");
+        rundenErgebnis.setText("");
     }
 }
 
