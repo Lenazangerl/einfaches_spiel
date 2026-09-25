@@ -2,6 +2,7 @@ package lzangerl.View;
 
 import javax.swing.*;
 import java.awt.*;
+import lzangerl.Controller.GewinnController;
 
 /**
  * @author Lena Zangerl
@@ -15,7 +16,7 @@ public class GewinnView extends JFrame {
     private JLabel gesamtErgebnis;
     private JButton btnWh;
 
-    public GewinnView() {
+    public GewinnView(GewinnController controller) {
         super("Zahlen-Gewinnspiel");
 
         BorderLayout basis = new BorderLayout();
@@ -68,6 +69,8 @@ public class GewinnView extends JFrame {
 
         // spalten anzahl
         spielerZahl = new JTextField();
+        spielerZahl.addActionListener(controller);
+        spielerZahl.setActionCommand("Eingabe");
         textfelder.add(spielerZahl);
 
         // spalten anzahl
@@ -75,6 +78,7 @@ public class GewinnView extends JFrame {
         textfelder.add(compZahl);
 
         btnWh = new JButton("Noch einmal!");
+        btnWh.addActionListener(controller);
         // Ein Panel damit der Button direkt mittig ist
         JPanel btn = new JPanel(new FlowLayout());
         btn.add(btnWh);
@@ -83,7 +87,6 @@ public class GewinnView extends JFrame {
 
         this.add(punkteAnzeige, BorderLayout.NORTH);
         this.add(textfelder, BorderLayout.CENTER);
-
         this.getCompZahl().setEditable(false);
 
         // Fenster Eigenschaften setzen
