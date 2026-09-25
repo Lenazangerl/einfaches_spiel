@@ -15,11 +15,33 @@ public class GewinnController implements ActionListener {
     private GewinnView view;
 
     public GewinnController() {
-
+        model = new GewinnModel();
+        view = new GewinnView(this);
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        String command = e.getActionCommand();
+
+        if(command.equals("Noch einmal!")) {
+            view.clearRunde();
+        }
+
+        if(command.equals("Eingabe")) {
+            try {
+                int zahl = Integer.parseInt(view.getSpielerZahl().getText());
+
+                if (zahl >= 1 && zahl <= 9) {
+                    model.berechneRunde(zahl);
+
+                    view.setCompZahl("" + model.getComputerZahl());
+                    view.setRundenErgebnis("" + model.getRundenErgebnis());
+                    view.setGesamtErgebnis("" + model.getGesamtPunkte());
+                }
+            } catch (NumberFormatException ex) {
+                // ungültige Eingabe
+            }
+        }
 
     }
 
