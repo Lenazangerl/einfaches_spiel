@@ -4,6 +4,7 @@ import lzangerl.Model.GewinnModel;
 import lzangerl.View.GewinnView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.*;
 
 /**
  * @author Lena Zangerl
@@ -37,6 +38,22 @@ public class GewinnController implements ActionListener {
                     view.setCompZahl("" + model.getComputerZahl());
                     view.setRundenErgebnis("" + model.getRundenErgebnis());
                     view.setGesamtErgebnis("" + model.getGesamtPunkte());
+
+                    if (model.hatGewonnen()) {
+                        view.setErgebnisFarbe(Color.GREEN);
+                    }
+                    else if (model.hatVerloren()) {
+                        view.setErgebnisFarbe(Color.RED);
+                    }
+                    else if (model.getRundenErgebnis() > 0) {
+                        view.setErgebnisFarbe(Color.GREEN);
+                    }
+                    else if (model.getRundenErgebnis() < 0) {
+                        view.setErgebnisFarbe(Color.RED);
+                    }
+                    else {
+                        view.setErgebnisFarbe(Color.WHITE);
+                    }
                 }
             } catch (NumberFormatException ex) {
                 // ungültige Eingabe
