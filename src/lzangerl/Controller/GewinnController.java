@@ -25,6 +25,8 @@ public class GewinnController implements ActionListener {
 
         if(command.equals("Noch einmal!")) {
             view.clearRunde();
+            view.setEingabeAktiv(true);
+            view.setNochmalAktiv(false);
         }
 
         if(command.equals("Eingabe")) {
@@ -37,6 +39,8 @@ public class GewinnController implements ActionListener {
                     view.setCompZahl("" + model.getComputerZahl());
                     view.setRundenErgebnis("" + model.getRundenErgebnis());
                     view.setGesamtErgebnis("" + model.getGesamtPunkte());
+                    view.setEingabeAktiv(false);
+                    view.setNochmalAktiv(true);
                 }
             } catch (NumberFormatException ex) {
                 // ungültige Eingabe
